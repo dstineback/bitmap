@@ -6,14 +6,14 @@ gulp.task('default', ['test','lint'], () => {
 });
 
 gulp.task('test', () => {
-  gulp.src('./test/test.js')
+  gulp.src(__dirname + '/test/test.js')
   .pipe(mocha())
 })
 
 gulp.task('lint', () => {
-  gulp.src('./greet.js')
+  gulp.src(__dirname + '/**.js')
     .pipe(eslint())
     .pipe(eslint.format())
 });
 
-gulp.watch('./**/**.js',['test','lint'])
+gulp.watch(__dirname + '/**/**.js',['test','lint'])
